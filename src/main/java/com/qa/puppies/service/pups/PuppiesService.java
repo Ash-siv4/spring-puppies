@@ -16,10 +16,4 @@ public interface PuppiesService {
 
 	Puppies updatePup(Long id, Puppies pup);
 
-//	// OLD VERSION - for PuppiesServiceList
-//	Puppies createPups(Puppies pup);
-//	List<Puppies> getPuppies();
-//	Puppies getPup(int id);
-//	Puppies removePup(int id);
-//	Puppies updatePup(int id, Puppies pup);
 }

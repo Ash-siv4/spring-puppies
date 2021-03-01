@@ -28,13 +28,6 @@ public class SpringPuppiesApplication {
 		// VERY DODGEY - DO NOT PUT IN PROJECT!!!!!
 		PuppiesController pc = beanBag.getBean(PuppiesController.class);
 		System.out.println(pc);
-
-//		List<Puppies> arrayList = new ArrayList<>();
-//		PuppiesController withAnArrayList = new PuppiesController(arrayList);
-//
-//		List<Puppies> linkedList = new LinkedList<>();
-//		PuppiesController withALinkerList = new PuppiesController(linkedList);
-
 	}
 
 }
