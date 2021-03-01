@@ -28,6 +28,14 @@ public class Puppies {
 		this.breed = breed;
 	}
 
+	public Puppies(Long id, String name, int age, String breed) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.age = age;
+		this.breed = breed;
+	}
+
 	// GETTERS AND SETTERS REQUIRED
 	public Long getId() {
 		return id;
