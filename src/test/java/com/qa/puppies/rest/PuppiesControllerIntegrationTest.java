@@ -130,7 +130,7 @@ public class PuppiesControllerIntegrationTest {
 		Long remId = 1L;
 		RequestBuilder mockRequest = delete("/removePup/" + remId);
 		ResultMatcher Status = status().isOk();
-		ResultMatcher Body = content().string("false");
+		ResultMatcher Body = content().string("true");
 
 		this.mockMVC.perform(mockRequest).andExpect(Status).andExpect(Body);
 	}

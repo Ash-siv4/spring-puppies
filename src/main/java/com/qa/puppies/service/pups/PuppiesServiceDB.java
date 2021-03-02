@@ -37,15 +37,15 @@ public class PuppiesServiceDB implements PuppiesService {
 	@Override
 	public boolean removePup(Long id) {
 		this.repo.deleteById(id);
-		return this.repo.existsById(id);
+//		return this.repo.existsById(id); // returns true if not removed pup 
+		return !this.repo.existsById(id); // returns false if not removed pup
 	}
 
 	@Override
 	public Puppies updatePup(Long id, Puppies pup) {
 		Optional<Puppies> optionalPup = this.repo.findById(id);
 		Puppies exist = optionalPup.get();
-		// Puppies exist = this.getPup(id);
-
+//		Puppies exist = this.getPup(id);
 		exist.setAge(pup.getAge());
 		exist.setName(pup.getName());
 		exist.setBreed(pup.getBreed());
