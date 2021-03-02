@@ -69,4 +69,52 @@ public class Puppies {
 		this.breed = breed;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + age;
+		result = prime * result + ((breed == null) ? 0 : breed.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+
+	// need this - else in PuppiesServiceDBUnitTest, it may return a null for some
+	// methods when comparing 2 objects which are equivalent but not literally the
+	// same
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Puppies other = (Puppies) obj;
+		if (age != other.age)
+			return false;
+		if (breed == null) {
+			if (other.breed != null)
+				return false;
+		} else if (!breed.equals(other.breed))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Puppies [id=" + id + ", name=" + name + ", age=" + age + ", breed=" + breed + "]";
+	}
+
 }

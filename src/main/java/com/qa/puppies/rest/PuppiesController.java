@@ -41,7 +41,7 @@ public class PuppiesController {
 	// Set status code (seen in postman)= before was: "200 Ok" --> changed to "201
 	// Created"
 	@PostMapping("/createPups")
-	public ResponseEntity<Puppies> createPups(@RequestBody Puppies pup) {
+	public ResponseEntity<Puppies> createPups(@RequestBody Puppies pup) { 
 //		this.pups.add(pup);
 //		Puppies added = this.pups.get(this.pups.size() - 1);
 //		return new ResponseEntity<Puppies>(added, HttpStatus.CREATED);
