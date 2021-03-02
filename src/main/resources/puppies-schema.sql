@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS puppies CASCADE;
+CREATE TABLE puppies (
+    id BIGINT AUTO_INCREMENT,
+    age INTEGER NOT NULL,
+    breed VARCHAR(255),
+    name VARCHAR(255),
+    PRIMARY KEY (id)
+);

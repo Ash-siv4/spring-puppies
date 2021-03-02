@@ -2,8 +2,6 @@ package com.qa.puppies.rest;
 
 import java.util.List;
 
-import javax.websocket.server.PathParam;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -78,7 +76,8 @@ public class PuppiesController {
 	@DeleteMapping("/removePup/{id}")
 	public boolean removePup(@PathVariable Long id) {
 //		return this.pups.remove(id);
-		return this.service.removePup(id);
+//		return !this.service.removePup(id); // return true if doesn't exist
+		return this.service.removePup(id);// return false if it doesn't exist
 	}
 
 	// Update -> PUT = replacing
