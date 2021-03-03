@@ -23,11 +23,11 @@ public class SpringPuppiesApplication {
 	}
 
 	public static void main(String[] args) {
-//		SpringApplication.run(SpringPuppiesApplication.class, args);
-		ApplicationContext beanBag = SpringApplication.run(SpringPuppiesApplication.class, args);
-		// VERY DODGEY - DO NOT PUT IN PROJECT!!!!!
-		PuppiesController pc = beanBag.getBean(PuppiesController.class);
-		System.out.println(pc);
+		SpringApplication.run(SpringPuppiesApplication.class, args);
+//		ApplicationContext beanBag = SpringApplication.run(SpringPuppiesApplication.class, args);
+//		// VERY DODGEY - DO NOT PUT IN PROJECT!!!!!
+//		PuppiesController pc = beanBag.getBean(PuppiesController.class);
+//		System.out.println(pc);
 
 //		List<Puppies> arrayList = new ArrayList<>();
 //		PuppiesController withAnArrayList = new PuppiesController(arrayList);

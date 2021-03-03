@@ -11,12 +11,14 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ActiveProfiles;
 
 import com.qa.puppies.domain.Puppies;
 import com.qa.puppies.repos.PuppiesRepo;
 import com.qa.puppies.service.pups.PuppiesServiceDB;
 
 @SpringBootTest
+@ActiveProfiles("test")
 public class PuppiesServiceDBUnitTest {
 
 	@Autowired
@@ -57,12 +59,12 @@ public class PuppiesServiceDBUnitTest {
 	@Test
 	void testReadOne() {
 		Long id = 1L;
-		Optional<Puppies> optPup = Optional.of(new Puppies(id,"Lucky", 1, "Staffie"));
+		Optional<Puppies> optPup = Optional.of(new Puppies(id, "Lucky", 1, "Staffie"));
 
 		Puppies readPup = new Puppies(id, "Lucky", 1, "Staffie");
 
 		Mockito.when(this.repo.findById(id)).thenReturn(optPup);
-		
+
 		assertThat(this.service.getPup(id)).isEqualTo(readPup);
 
 		Mockito.verify(this.repo, Mockito.times(1)).findById(id);
@@ -71,13 +73,14 @@ public class PuppiesServiceDBUnitTest {
 	@Test
 	void testDelete() {
 		Long id = 1L;
-		
-		Mockito.when(this.repo.existsById(id)).thenReturn(true,false);
-		
+
+		Mockito.when(this.repo.existsById(id)).thenReturn(true, false);
+
 		assertThat(this.service.removePup(id)).isFalse();
-		
+
 		Mockito.verify(this.repo, Mockito.times(1)).deleteById(id);
-		Mockito.verify(this.repo, Mockito.times(1)).existsById(id);;
+		Mockito.verify(this.repo, Mockito.times(1)).existsById(id);
+		;
 
 	}
 
