@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,9 @@ import com.qa.puppies.domain.Puppies;
 import com.qa.puppies.service.pups.PuppiesService;
 
 @RestController
+@CrossOrigin // enable 'CORS' (so that scripts running on a browser client can interact with
+				// resources from a different origin); else error = No
+				// 'Access-Control-Allow-Origin'
 public class PuppiesController {
 
 	private PuppiesService service; // <- dependency
@@ -41,7 +45,8 @@ public class PuppiesController {
 	// Set status code (seen in postman)= before was: "200 Ok" --> changed to "201
 	// Created"
 	@PostMapping("/createPups")
-	public ResponseEntity<Puppies> createPups(@RequestBody Puppies pup) { 
+	public ResponseEntity<Puppies> createPups(@RequestBody Puppies pup) { // json format
+//	public ResponseEntity<Puppies> createPups( Puppies pup) { //x-www-form-urlencoded format
 //		this.pups.add(pup);
 //		Puppies added = this.pups.get(this.pups.size() - 1);
 //		return new ResponseEntity<Puppies>(added, HttpStatus.CREATED);
