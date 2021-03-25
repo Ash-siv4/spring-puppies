@@ -63,6 +63,7 @@ public class PuppiesController {
 	public ResponseEntity<List<Puppies>> getPuppies() {
 //		return ResponseEntity.ok(this.pups);// do like this because passing in a List to ResponseEntity
 		return ResponseEntity.ok(this.service.getPuppies());
+//		return new ResponseEntity<List<Puppies>>(this.service.getPuppies(),HttpStatus.OK);
 	}
 
 //	// Read -> GET = retrieve single data
@@ -75,6 +76,7 @@ public class PuppiesController {
 	public ResponseEntity<Puppies> getPup(@PathVariable Long id) {
 //		return new ResponseEntity<Puppies>(this.pups.get(id), HttpStatus.OK);
 		return new ResponseEntity<Puppies>(this.service.getPup(id), HttpStatus.OK);
+//		return ResponseEntity.ok(this.service.getPup(id));
 	}
 
 	// Delete -> DELETE = remove
